@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+
+contract ejemplo_Almacenar_String{
+
+
+     string public mystring = "hola mundo"; // crear variable
+     bytes public myByte ="holamundo";
+
+     function almacena_string (string memory _mystring) public{
+             mystring = _mystring;  /// lo que recibe lo guarda en la blockchain
+
+ }
+
+ function almacena_byte (bytes memory _myByte) public{
+             myByte = _myByte;  /// los Byte q  recibe  que recibe lo guarda en la blockchain
+ }
+        function comparador_s(string memory _mystring ) public view returns (bool) {
+            return keccak256(abi.encodePacked(mystring)) == keccak256(abi.encodePacked(_mystring)) ;
+
+//los string  que recibe lo empaqueta y lo compara con lo que tiene guardado y retorna un bool
+ }
+
+}
